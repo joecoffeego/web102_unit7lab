@@ -59,6 +59,38 @@ const EditPost = ({data}) => {
         }
     }
 
+    const deletePost = async (event) => {
+        event.preventDefault();
+
+        if (!confirm('Are you sure you want to delete this post?')) return;
+
+        setLoading(true)
+
+        // handle numeric id vs uuid string
+        const idForQuery = /^\d+$/.test(id) ? Number(id) : id
+
+        try {
+            const { data, error } = await supabase
+                .from('Posts')
+                .delete()
+                .eq('id', idForQuery)
+
+            if (error) {
+                console.error('Delete error:', error)
+                alert('Failed to delete post: ' + error.message)
+                setLoading(false)
+                return
+            }
+
+            console.log('Deleted row:', data)
+            navigate('/')
+        } catch (err) {
+            console.error('Unexpected delete error:', err)
+            alert('Unexpected error occurred')
+            setLoading(false)
+        }
+    };
+
     return (
         <div>
             <form onSubmit={updatePost}>
@@ -74,7 +106,7 @@ const EditPost = ({data}) => {
                 <textarea rows="5" cols="50" id="description" name="description" value={post.description} onChange={handleChange} />
                 <br/>
                 <input type="submit" value={loading ? "Submitting..." : "Submit"} disabled={loading} />
-                <button type="button" className="deleteButton">Delete</button>
+                <button type="button" className="deleteButton" onClick={deletePost}>Delete</button>
             </form>
         </div>
     )
