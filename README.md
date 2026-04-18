@@ -30,11 +30,11 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-
+![App Demo](lab7.gif)
 
 GIF created with ...  
 
-
+ezgif.com
 
 ## Notes
 
