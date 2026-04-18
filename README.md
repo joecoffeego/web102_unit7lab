@@ -19,7 +19,8 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-[ ] The site displays the total number of users who have indicated they have accepted each challenge
+[x] The site displays the total number of users who have indicated they have accepted each challenge
+[x] Integrate a Large Language Model (LLM) to automatically analyze and tag the content users submit to our forum.
 
 
 
@@ -30,7 +31,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![App Demo](lab7.gif)
+![App Demo](Lab7AI.gif)
 
 GIF created with ...  
 
