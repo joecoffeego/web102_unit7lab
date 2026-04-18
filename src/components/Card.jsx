@@ -12,13 +12,19 @@ const Card = (props) =>  {
   }
 
   return (
+    <>
       <div className="Card">
-          <Link to={'edit/'+ props.id}><img className="moreButton" alt="edit button" src={more} /></Link>
+          <Link to={`/edit/${props.id}`}><img className="moreButton" alt="edit button" src={more} /></Link>
           <h2 className="title">{props.title}</h2>
           <h3 className="author">{"by " + props.author}</h3>
           <p className="description">{props.description}</p>
           <button className="betButton" onClick={updateCount} >👍 Bet Count: {count}</button>
       </div>
+      <div className="tags">
+        <span className="spiciness">🌶️ {props.spiciness}/10</span>
+        <span className="category">🏷️ {props.category}</span>
+      </div>
+    </>
   );
 };
 
